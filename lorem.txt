@@ -1,22 +1,2 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus laoreet lacus. Aliquam ullamcorper vestibulum dui, non tristique diam tincidunt et. Donec enim arcu, iaculis a aliquet eget, aliquet eget ante. Nam tempor tempor justo, sit amet lobortis justo euismod et. Nam suscipit nulla eu mi bibendum malesuada. Aliquam erat volutpat. Fusce eu lorem turpis. Donec ultrices sollicitudin augue. Pellentesque ultricies fringilla erat. Quisque sollicitudin vitae justo sit amet tempor.
 
-class Integer
-
-def divisible_by (number)
-
-  "1" * self =~ (/^1#{number}+$/)
-
-end
-
-(0..100).each do |integer|
-    puts(if integer.divisible_by 3
-          puts "fizz"
-         elisf integer.divisible_by 5
-          puts "buzz"
-         elsif integer.divisible_by 15
-         puts "fizzbuzz"
-         else
-          puts integer
-          end)
-    end 
-
