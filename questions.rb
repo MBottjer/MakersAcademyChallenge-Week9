@@ -1,19 +1,11 @@
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-  array.select do |word|
-    if word[0] == 'a' 
-       word
-     end
-  end
+  array.select { |word| if word[0] == 'a' then word end}
 end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-  array.select do |word| 
-    if ("aeiou").include?(word[0]) 
-      word 
-    end
-  end
+  array.select { |word| if ("aeiou").include?(word[0]) then word end} 
 end
 
 # remove instances of nil (but NOT false) from an array
@@ -61,12 +53,11 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
+  string_index = string.length/2
   if string.length%2 == 0
-    string_index = string.length/2
     string[0,string_index]
   else 
-    string_index = (string.length/2) + 1
-    string[0,string_index]
+    string[0,string_index+1]
   end
 end
 
@@ -85,9 +76,9 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
-  new_array = []
-  new_array << array.select {|number| number if number.even?}
-  new_array << array.select {|number| number if number.odd?}
+  new_array = [[],[]]
+  array.each { |number| if number.even? then new_array[0] << number else new_array[1] << number end}
+  new_array
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -96,11 +87,7 @@ end
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
   new_array = []
-  array.each do |word| 
-    if word.reverse == word
-      new_array << word 
-    end
-  end
+  array.each { |word| if word.reverse == word then new_array << word end }
   new_array.count
 end
 
